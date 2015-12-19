@@ -13,7 +13,11 @@ public class Production {
     private Genre genre;
 
     public Performer getLeadingPerformer(){
-        return performers.get(0);
+        return this.performers.get(0);
+    }
+
+    public Genre getGenre(){
+        return this.genre;
     }
 
 

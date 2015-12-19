@@ -9,16 +9,16 @@ import java.util.Map;
  */
 public class Person {
     protected static final Map<Integer, Double> AGE_WEIGHTS = new LinkedHashMap<Integer, Double>(){{
-        put(20, 0.7);
-        put(30, 0.8);
-        put(40, 0.7);
+        put(20, 0.5);
+        put(30, 0.85);
+        put(40, 0.65);
         put(50, 0.4);
-        put(60, 0.2);
+        put(60, 0.1);
     }};
-    private String firstName, lastName;
-    private Gender gender;
-    private int age;
-    private Collection<Production> previousProductions;
+    protected String firstName, lastName;
+    protected Gender gender;
+    protected int age;
+    protected Collection<Production> previousProductions;
 
     public Person(){
         this.gender = Pick.gender();

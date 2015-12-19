@@ -14,6 +14,10 @@ public class CurtainCall extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+
+		for(int i = 0; i < 10; i++){
+			System.out.println(new Performer().toString());
+		}
 	}
 
 	@Override

@@ -2,12 +2,13 @@ package com.edwinhollen.curtaincall;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /**
  * Created by Edwin on 12/19/15
  */
-public class Person {
+public abstract class Person {
     protected static final Map<Integer, Double> AGE_WEIGHTS = new LinkedHashMap<Integer, Double>(){{
         put(20, 0.5);
         put(30, 0.85);
@@ -25,13 +26,15 @@ public class Person {
         this.firstName = Pick.firstName(this.gender);
         this.lastName = Pick.lastName();
         this.age = Pick.weighted(AGE_WEIGHTS) + Pick.between(-10, 10);
+
+        this.previousProductions = new LinkedList<Production>(){{
+            for(int i = 0; i < Pick.between(0, 10); i++){
+                add(new Production());
+            }
+        }};
     }
 
-    public int getExperienceLevel(){
-        return previousProductions.stream().mapToInt(production -> {
-            return production.getLeadingPerformer().equals(this) ? 3 : 1;
-        }).sum();
-    }
+    public abstract int getExperienceLevel();
 
     @Override
     public String toString() {

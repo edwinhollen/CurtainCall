@@ -7,19 +7,28 @@ public class Performer extends Person{
 
     public Performer(){
         super();
-
-
     }
 
-    public float getSingingAbility(){
-        return this.previousProductions.stream().mapToInt(production -> {
-            return production.getGenre() == Production.Genre.MUSICAL ? 3 : 1;
-        }).sum() / previousProductions.size();
+    @Override
+    public int getExperienceLevel() {
+        return getSingingAbility() + getDancingAbility() + getActingAbility();
     }
 
-    public float getDancingAbility(){
+    public int getSingingAbility(){
         return this.previousProductions.stream().mapToInt(production -> {
             return production.getGenre() == Production.Genre.MUSICAL ? 3 : 1;
-        }).sum() / previousProductions.size();
+        }).sum();
+    }
+
+    public int getDancingAbility(){
+        return this.previousProductions.stream().mapToInt(production -> {
+            return production.getGenre() == Production.Genre.MUSICAL ? 3 : 1;
+        }).sum();
+    }
+
+    public int getActingAbility(){
+        return this.previousProductions.stream().mapToInt(production -> {
+            return (production.getGenre() == Production.Genre.PLAY ? 3 : 1);
+        }).sum();
     }
 }

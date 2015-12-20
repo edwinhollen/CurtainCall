@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class CurtainCall extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
@@ -15,8 +18,10 @@ public class CurtainCall extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 
+		List<Performer> performers = new LinkedList<>();
+
 		for(int i = 0; i < 10; i++){
-			System.out.println(new Performer().toString());
+			performers.add(new Performer());
 		}
 	}
 

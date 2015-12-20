@@ -1,6 +1,7 @@
 package com.edwinhollen.curtaincall;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,8 +13,20 @@ public class Production {
     private Collection<Crewmember> crew;
     private Genre genre;
 
-    public Performer getLeadingPerformer(){
-        return this.performers.get(0);
+    public Production(String title, List<Performer> performers, Collection<Crewmember> crew, Genre genre) {
+        this.title = title;
+        this.performers = performers;
+        this.crew = crew;
+        this.genre = genre;
+    }
+
+    public Production(){
+        this(
+            Pick.title(),
+            new LinkedList<>(),
+            new LinkedList<>(),
+            Pick.fromArray(Genre.values())
+        );
     }
 
     public Genre getGenre(){
